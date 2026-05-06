@@ -4,143 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ativação UniTV - Planos e Downloads</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #e60000; /* Mudado de amarelo para vermelho intenso */
-            --secondary: #1a1a1a;
-            --bg: #0d0d0d;
+            --primary: #E50914; 
+            --secondary: #232323; 
+            --bg: #181818; 
             --text: #ffffff;
             --success: #25d366;
-            --primary-light: #ff3333; /* Vermelho mais claro para hover */
+            --primary-light: #ff1f29;
         }
 
-        body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding-bottom: 80px; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg); 
+            color: var(--text); 
+            margin: 0; 
+            padding-bottom: 80px;
+            -webkit-font-smoothing: antialiased;
+        }
+
         .container { max-width: 900px; margin: auto; padding: 20px; text-align: center; }
         
-        /* Banner e Chamada */
-        .hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://tvbr.ovh/fundo.jpg'); background-size: cover; padding: 40px 20px; border-bottom: 2px solid var(--primary); }
-        h1 { color: var(--primary); margin: 10px 0; font-size: 28px; }
-        
-        /* Cards de Planos (Atualizado para Vermelho) */
+        /* Banner */
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://tvbr.ovh/fundo.jpg'); 
+            background-size: cover; 
+            padding: 50px 20px; 
+            border-bottom: 3px solid var(--primary); 
+        }
+
+        h1 { 
+            font-family: 'Oswald', sans-serif;
+            color: var(--primary); 
+            margin: 10px 0; 
+            font-size: 38px; 
+            text-transform: uppercase;
+        }
+
+        /* Estilos do Carrossel */
+        .carousel-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 30px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 2px solid #333;
+            position: relative;
+        }
+
+        .carousel-track {
+            display: flex;
+            width: 300%; /* 3 fotos */
+            animation: slide 12s infinite ease-in-out;
+        }
+
+        .carousel-track img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            30% { transform: translateX(0); }
+            33% { transform: translateX(-33.33%); }
+            63% { transform: translateX(-33.33%); }
+            66% { transform: translateX(-66.66%); }
+            96% { transform: translateX(-66.66%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Restante dos estilos mantidos */
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin: 40px 0; }
-        .plan-card { background: var(--secondary); border: 1px solid #333; border-radius: 15px; padding: 20px; position: relative; transition: 0.3s; }
-        .plan-card.popular { border: 2px solid var(--primary); transform: scale(1.05); }
-        .badge { background: var(--primary); color: #fff; padding: 5px 10px; border-radius: 5px; font-weight: bold; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); font-size: 12px; }
-        .price { font-size: 32px; font-weight: bold; margin: 15px 0; color: var(--primary); }
+        .plan-card { background: var(--secondary); border: 1px solid #333; border-radius: 8px; padding: 25px; position: relative; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .plan-card.popular { border: 2px solid var(--primary); transform: scale(1.05); background: #2a2a2a; }
+        .badge { font-family: 'Oswald', sans-serif; background: var(--primary); color: #fff; padding: 5px 12px; border-radius: 3px; font-weight: bold; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); font-size: 12px; letter-spacing: 1px; }
+        .price { font-family: 'Oswald', sans-serif; font-size: 38px; font-weight: bold; margin: 15px 0; color: var(--text); }
         .features { list-style: none; padding: 0; text-align: left; margin: 20px 0; }
-        .features li { margin: 10px 0; font-size: 14px; }
-        .btn-select { display: block; background: var(--primary); color: #fff; text-decoration: none; padding: 12px; border-radius: 8px; font-weight: bold; transition: 0.2s; }
-        .btn-select:hover { background: var(--primary-light); }
-        .pix-info { font-size: 11px; color: #aaa; margin-top: 10px; display: block; }
-
-        /* Seção Compatibilidade (COM ÍCONES E VERMELHO) */
-        .compatibility { background: #161616; padding: 25px; border-radius: 15px; margin: 30px 0; border-left: 5px solid var(--primary); }
-        .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left; margin-top: 15px; align-items: start; }
-        
-        /* Estilização dos Itens de Compatibilidade */
-        .comp-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .comp-icon {
-            font-size: 24px;
-            color: var(--primary);
-            width: 30px;
-            text-align: center;
-        }
-        .comp-text b { color: var(--primary); display: block; }
-        .comp-text span { color: #ccc; font-size: 14px; }
-
-        /* Downloader (VERMELHO, CENTRALIZADO) */
-        .downloader-section { background: #000; padding: 30px; border-radius: 15px; border: 1px dashed #444; }
-        
-        /* Centralização e Estilo dos Números */
-        .step-container {
-            display: flex;
-            align-items: center;
-            justify-content: center; /* CENTRALIZAR BLOCO */
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-        .step-circle {
-            background: var(--secondary);
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            border-radius: 50%;
-            width: 35px;
-            height: 35px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 18px;
-        }
-        .step-label {
-            font-size: 18px;
-            text-align: left;
-            flex: 1;
-        }
-
-        .downloader-instructions { text-align: center; margin-top: 30px; }
-
-        .code-box {
-            background: #111;
-            color: #00ff00;
-            padding: 15px;
-            border-radius: 8px;
-            font-family: monospace;
-            font-size: 20px;
-            font-weight: bold;
-            display: inline-block;
-            margin: 10px 0;
-            border: 1px dashed var(--primary);
-        }
-        
-        /* Botão de Download Melhorado (Substitui o link) */
-        .btn-download-link {
-            display: inline-block;
-            background: transparent;
-            color: var(--primary);
-            border: 1px solid var(--primary);
-            text-decoration: none;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 14px;
-            margin-top: 5px;
-            transition: 0.2s;
-        }
-        .btn-download-link:hover {
-            background: var(--primary);
-            color: #fff;
-        }
-
-        /* WhatsApp Flutuante */
-        .btn-whatsapp { position: fixed; bottom: 20px; right: 20px; background: var(--success); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-decoration: none; z-index: 1000; transition: 0.2s; }
-        .btn-whatsapp:hover { transform: scale(1.1); }
-        .btn-whatsapp svg { width: 35px; fill: white; }
+        .features li { margin: 12px 0; font-size: 15px; border-bottom: 1px solid #333; padding-bottom: 8px; }
+        .btn-select { font-family: 'Oswald', sans-serif; display: block; background: var(--primary); color: #fff; text-decoration: none; padding: 14px; border-radius: 4px; font-weight: bold; transition: 0.2s; text-transform: uppercase; font-size: 18px; }
+        .btn-select:hover { background: var(--primary-light); transform: translateY(-2px); }
+        .compatibility { background: #202020; padding: 25px; border-radius: 8px; margin: 30px 0; border-left: 5px solid var(--primary); }
+        .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left; margin-top: 15px; }
+        .comp-item { display: flex; align-items: center; gap: 10px; }
+        .comp-icon { font-size: 24px; color: var(--primary); width: 30px; text-align: center; }
+        .comp-text b { font-family: 'Oswald', sans-serif; color: var(--primary); display: block; font-size: 18px; text-transform: uppercase; }
+        .downloader-section { background: #111; padding: 35px; border-radius: 8px; border: 1px solid #333; }
+        .step-container { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 15px; }
+        .step-circle { background: var(--primary); color: #fff; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .code-box { background: #222; color: #00ff00; padding: 15px 25px; border-radius: 4px; font-family: monospace; font-size: 24px; font-weight: bold; display: inline-block; margin: 10px 0; border: 1px solid var(--primary); }
+        .btn-download-link { font-family: 'Oswald', sans-serif; display: inline-block; background: transparent; color: var(--text); border: 1px solid #444; text-decoration: none; padding: 8px 18px; border-radius: 4px; font-size: 13px; text-transform: uppercase; }
+        .btn-whatsapp { position: fixed; bottom: 25px; right: 25px; background: var(--success); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 1000; transition: 0.2s; }
     </style>
 </head>
 <body>
 
     <div class="hero">
         <h1>ATIVAÇÃO UNITV</h1>
-        <p>A melhor experiência em streaming na sua tela</p>
+        <p style="font-size: 18px; opacity: 0.9;">A melhor experiência em streaming na sua tela</p>
     </div>
 
     <div class="container">
         
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <img src="https://i.imgur.com/vHqB4Rk.jpg" alt="Interface TV"> <img src="https://i.imgur.com/k9x8N1T.jpg" alt="Interface Filmes">
+                <img src="https://i.imgur.com/Y6zQ8pP.jpg" alt="Interface Kids">
+            </div>
+        </div>
+
         <div class="compatibility">
-            <h3 style="display: flex; align-items: center; gap: 10px; justify-content: center;"><span class="comp-icon" style="color:#fff;">✅</span> Compatível com todos dispositivos</h3>
+            <h3 style="display: flex; align-items: center; gap: 10px; justify-content: center; font-family: 'Oswald'; margin-top:0;">✅ DISPOSITIVOS SUPORTADOS</h3>
             <div class="comp-grid">
                 <div class="comp-item">
                     <span class="comp-icon">📱</span>
-                    <div class="comp-text"><b>Celulares</b><span>Todos os Android</span></div>
+                    <div class="comp-text"><b>Celulares</b><span>Android Universal</span></div>
                 </div>
                 <div class="comp-item">
                     <span class="comp-icon">📲</span>
-                    <div class="comp-text"><b>Tablets</b><span>Android Antigo ao 16</span></div>
+                    <div class="comp-text"><b>Tablets</b><span>Todos os modelos</span></div>
                 </div>
                 <div class="comp-item">
                     <span class="comp-icon">📺</span>
@@ -148,7 +131,7 @@
                 </div>
                 <div class="comp-item">
                     <span class="comp-icon">🖥️</span>
-                    <div class="comp-text"><b>Smart TV</b><span>TV Android</span></div>
+                    <div class="comp-text"><b>Smart TV</b><span>Android TV / Google TV</span></div>
                 </div>
             </div>
         </div>
@@ -164,11 +147,10 @@
                     <li>✅ Fácil Ativação</li>
                 </ul>
                 <a href="https://wa.me/5561981655652?text=Olá, quero o Plano Básico" class="btn-select">Selecionar</a>
-                <span class="pix-info">Pagamento via PIX - Código na hora!</span>
             </div>
 
             <div class="plan-card popular">
-                <div class="badge">MAIS POPULAR - ECONOMIZE R$ 10</div>
+                <div class="badge">MAIS POPULAR</div>
                 <h3>Premium</h3>
                 <div class="price">R$ 69,90</div>
                 <ul class="features">
@@ -178,11 +160,10 @@
                     <li>✅ Atualizações Gratuitas</li>
                 </ul>
                 <a href="https://wa.me/5561981655652?text=Olá, quero o Plano Premium" class="btn-select">Selecionar</a>
-                <span class="pix-info">Pagamento via PIX - Código na hora!</span>
             </div>
 
             <div class="plan-card">
-                <div class="badge" style="background:#444; color:white;">ECONOMIZE R$ 30</div>
+                <div class="badge" style="background:#444; color:white;">MELHOR CUSTO</div>
                 <h3>VIP</h3>
                 <div class="price">R$ 129,90</div>
                 <ul class="features">
@@ -192,47 +173,34 @@
                     <li>✅ Conteúdo Exclusivo</li>
                 </ul>
                 <a href="https://wa.me/5561981655652?text=Olá, quero o Plano VIP" class="btn-select">Selecionar</a>
-                <span class="pix-info">Pagamento via PIX - Código na hora!</span>
             </div>
         </div>
 
         <div class="downloader-section">
-            <h3 style="color:var(--primary); text-align:center;">📲 Como Baixar pelo App Downloader</h3>
-            
-            <div class="downloader-instructions">
+            <h2 style="font-family: 'Oswald'; color:var(--primary); text-align:center; text-transform: uppercase;">📲 Para Instalar pelo Downloader use o código abaixo 👇</h2>
+            <div class="downloader-instructions" style="margin-top: 30px;">
                 <div class="step-container">
                     <div class="step-circle">1</div>
-                    <div class="step-label">Abra o <b>Downloader</b> (na PlayStore)</div>
+                    <div class="step-label">Abra o <b>Downloader</b> na sua TV</div>
                 </div>
-
-                <div class="step-container">
-                    <div class="step-circle">2</div>
-                    <div class="step-label">Digite o código do app desejado:</div>
-                </div>
-                
                 <div style="text-align: center; margin: 30px 0;">
-                    <div style="margin-bottom: 25px;">
-                        <b style="color:#ccc;">Ativador:</b><br>
+                    <div style="margin-bottom: 30px;">
+                        <b style="color:#aaa; font-family: 'Oswald'; font-size: 14px; letter-spacing: 1px;">ATIVADOR:</b><br>
                         <div class="code-box">9671325</div><br>
                         <a href="https://tvbr.ovh/downloads/Ativador-REV-UPDATE.apk" class="btn-download-link">Baixar Ativador APK</a>
                     </div>
                     <div>
-                        <b style="color:#ccc;">UniTV Free 5.5.0:</b><br>
+                        <b style="color:#aaa; font-family: 'Oswald'; font-size: 14px; letter-spacing: 1px;">UNITV FREE 5.5.0:</b><br>
                         <div class="code-box">7693157</div><br>
-                        <a href="https://tvbr.ovh/downloads/UniTV_Free_5.5.0.apk" class="btn-download-link">Baixar UniTV Free APK</a>
+                        <a href="https://tvbr.ovh/downloads/UniTV_Free_5.5.0.apk" class="btn-download-link">Baixar UniTV APK</a>
                     </div>
-                </div>
-                
-                <div class="step-container">
-                    <div class="step-circle">3</div>
-                    <div class="step-label">O download começará automaticamente.</div>
                 </div>
             </div>
         </div>
     </div>
 
     <a href="https://wa.me/5561981655652" class="btn-whatsapp" target="_blank">
-        <svg viewBox="0 0 32 32"><path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.046l-2.137 7.954 8.235-2.092c2.303 1.293 4.9 1.977 7.765 1.977 8.837 0 16-7.163 16-16s-7.163-16-16-16zM10.705 8.398c0.242 0 0.484 0.010 0.702 0.010 0.235 0 0.454 0.056 0.646 0.454 0.242 0.493 0.826 2.031 0.898 2.181 0.072 0.15 0.121 0.325 0.021 0.525s-0.15 0.35-0.301 0.525c-0.15 0.175-0.314 0.389-0.45 0.525-0.15 0.15-0.306 0.314-0.133 0.613 0.175 0.3 0.772 1.275 1.652 2.056 1.135 1.006 2.093 1.32 2.408 1.486 0.314 0.166 0.493 0.133 0.681-0.072 0.188-0.218 0.803-0.931 1.013-1.25 0.218-0.314 0.438-0.256 0.737-0.15s1.892 0.892 2.22 1.056c0.328 0.166 0.547 0.242 0.627 0.389 0.080 0.15 0.080 0.856-0.231 1.741s-1.815 1.716-2.518 1.77c-0.702 0.056-1.353-0.218-4.321-1.394-3.56-1.41-5.836-5.064-6.015-5.305-0.175-0.241-1.424-1.892-1.424-3.61s0.892-2.565 1.218-2.915c0.314-0.364 0.697-0.454 0.942-0.454z"/></svg>
+        <svg viewBox="0 0 32 32" width="35" fill="white"><path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.046l-2.137 7.954 8.235-2.092c2.303 1.293 4.9 1.977 7.765 1.977 8.837 0 16-7.163 16-16s-7.163-16-16-16zM10.705 8.398c0.242 0 0.484 0.010 0.702 0.010 0.235 0 0.454 0.056 0.646 0.454 0.242 0.493 0.826 2.031 0.898 2.181 0.072 0.15 0.121 0.325 0.021 0.525s-0.15 0.35-0.301 0.525c-0.15 0.175-0.314 0.389-0.45 0.525-0.15 0.15-0.306 0.314-0.133 0.613 0.175 0.3 0.772 1.275 1.652 2.056 1.135 1.006 2.093 1.32 2.408 1.486 0.314 0.166 0.493 0.133 0.681-0.072 0.188-0.218 0.803-0.931 1.013-1.25 0.218-0.314 0.438-0.256 0.737-0.15s1.892 0.892 2.22 1.056c0.328 0.166 0.547 0.242 0.627 0.389 0.080 0.15 0.080 0.856-0.231 1.741s-1.815 1.716-2.518 1.77c-0.702 0.056-1.353-0.218-4.321-1.394-3.56-1.41-5.836-5.064-6.015-5.305-0.175-0.241-1.424-1.892-1.424-3.61s0.892-2.565 1.218-2.915c0.314-0.364 0.697-0.454 0.942-0.454z"/></svg>
     </a>
 
 </body>
