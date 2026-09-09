@@ -1,898 +1,581 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <meta name="description" content="Ativação UniTV - Planos vitalícios com os melhores preços. Suporte 24/7 e instalação facilitada via Downloader.">
-    <meta name="keywords" content="UniTV, ativação UniTV, IPTV, TV Box, Downloader, códigos UniTV">
-    <meta name="author" content="UniTV Ativação">
-    <title>UniTV Ativação Oficial - Planos Vitalícios</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Central de Downloads · UP</title>
+  <!-- Font Awesome para ícones modernos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        :root {
-            --primary: #FF0040;
-            --primary-dark: #CC0033;
-            --primary-light: #FF3366;
-            --secondary: #00D4FF;
-            --accent: #FFD700;
-            --bg: #0a0a0a;
-            --card-bg: #111111;
-            --text: #ffffff;
-            --text-muted: #aaaaaa;
-            --success: #25d366;
-            --border: #2a2a2a;
-            --shadow: 0 15px 40px rgba(255, 0, 64, 0.2);
-            --glow: 0 0 30px rgba(255, 0, 64, 0.3);
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
+    body {
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 20% 20%, #0f172a, #020617);
+      color: #f1f5f9;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    .container {
+      max-width: 600px;
+      width: 100%;
+      margin: 0 auto;
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+    /* ===== CARDS ===== */
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 36px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 25px 40px -15px rgba(0, 0, 0, 0.7);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
 
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg); }
-        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 30px 50px -18px #000000cc;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 0 20px;
-        }
+    /* ===== HERO ===== */
+    .hero {
+      text-align: center;
+      padding: 18px 16px 28px;
+      background: rgba(255, 255, 255, 0.02);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
 
-        /* ===== HEADER / HERO ===== */
-        .hero {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a0008 50%, #0a0a0a 100%);
-            padding: 60px 20px 40px;
-            text-align: center;
-            border-bottom: 3px solid var(--primary);
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(ellipse at center, rgba(255,0,64,0.05) 0%, transparent 70%);
-            animation: pulseGlow 4s ease-in-out infinite;
-        }
-        @keyframes pulseGlow {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.2); opacity: 1; }
-        }
+    .logo {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 16px;
+      background: linear-gradient(145deg, #25D366, #128C7E);
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      color: #0b1a0e;
+      box-shadow: 0 12px 20px -8px #128c7e55;
+    }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      background: linear-gradient(to right, #e2e8f0, #b9c7e0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 6px;
+    }
 
-        .hero-badge {
-            display: inline-block;
-            background: var(--primary);
-            color: #fff;
-            padding: 6px 20px;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-        }
+    .subhead {
+      font-size: 1rem;
+      color: #94a3b8;
+      margin-bottom: 22px;
+      font-weight: 400;
+      letter-spacing: 0.2px;
+    }
 
-        .hero h1 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 4rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
-        }
-        .hero h1 .highlight {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero h1 .highlight2 {
-            color: var(--accent);
-            -webkit-text-fill-color: var(--accent);
-        }
+    /* ===== BOTÕES ===== */
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      font-size: 1.05rem;
+      padding: 15px 18px;
+      border-radius: 60px;
+      margin: 12px 0 8px;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      letter-spacing: 0.3px;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(4px);
+    }
 
-        .hero p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-        }
+    .btn i {
+      font-size: 1.3rem;
+      width: 28px;
+      text-align: center;
+    }
 
-        /* ===== CARROSSEL ===== */
-        .carousel-section {
-            margin: -30px auto 50px;
-            position: relative;
-            z-index: 2;
-        }
-        .carousel-container {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow), var(--glow);
-            background: #000;
-            border: 1px solid var(--primary);
-        }
-        .carousel-slides {
-            display: flex;
-            transition: transform 0.6s ease-in-out;
-        }
-        .carousel-slide {
-            min-width: 100%;
-        }
-        .carousel-slide img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-            aspect-ratio: 16/9;
-        }
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0,0,0,0.8);
-            color: white;
-            border: 2px solid var(--primary);
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: var(--transition);
-            z-index: 10;
-        }
-        .carousel-btn:hover {
-            background: var(--primary);
-            transform: translateY(-50%) scale(1.1);
-        }
-        .carousel-btn.prev { left: 15px; }
-        .carousel-btn.next { right: 15px; }
-        .carousel-dots {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 10;
-        }
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.4);
-            cursor: pointer;
-            transition: var(--transition);
-            border: 1px solid transparent;
-        }
-        .dot.active {
-            background: var(--primary);
-            border-color: var(--secondary);
-            box-shadow: 0 0 15px var(--primary);
-            width: 30px;
-            border-radius: 10px;
-        }
+    .btn:hover {
+      transform: scale(1.01) translateY(-2px);
+      filter: brightness(1.12);
+      box-shadow: 0 16px 28px -8px rgba(0, 0, 0, 0.5);
+    }
 
-        /* ===== COMPATIBILIDADE ===== */
-        .compatibility {
-            background: var(--card-bg);
-            padding: 35px;
-            border-radius: 20px;
-            margin: 50px 0;
-            border: 1px solid var(--border);
-            transition: var(--transition);
-        }
-        .compatibility:hover {
-            border-color: var(--primary);
-            box-shadow: var(--glow);
-        }
-        .compatibility h2 {
-            font-family: 'Oswald', sans-serif;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.8rem;
-            color: var(--secondary);
-        }
-        .comp-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-        }
-        .comp-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 15px 20px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 12px;
-            transition: var(--transition);
-            border: 1px solid transparent;
-        }
-        .comp-item:hover {
-            background: rgba(255,0,64,0.08);
-            border-color: var(--primary);
-            transform: translateX(5px);
-        }
-        .comp-icon {
-            font-size: 2rem;
-            color: var(--secondary);
-        }
-        .comp-text b {
-            font-family: 'Oswald', sans-serif;
-            color: var(--primary);
-            display: block;
-            font-size: 1rem;
-        }
-        .comp-text span {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
+    .btn-whatsapp {
+      background: #25D366;
+      color: #052e16;
+      border-color: #34eb7a;
+    }
 
-        /* ===== PLANOS ===== */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin: 50px 0;
-        }
-        .plan-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 30px 25px 35px;
-            position: relative;
-            transition: var(--transition);
-            border: 2px solid var(--border);
-            text-align: center;
-            overflow: hidden;
-        }
-        .plan-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            opacity: 0;
-            transition: var(--transition);
-        }
-        .plan-card:hover::before {
-            opacity: 1;
-        }
-        .plan-card:hover {
-            transform: translateY(-12px);
-            border-color: var(--primary);
-            box-shadow: var(--shadow), var(--glow);
-        }
-        .plan-card.popular {
-            border-color: var(--accent);
-            transform: scale(1.03);
-            box-shadow: var(--shadow), 0 0 40px rgba(255, 215, 0, 0.15);
-        }
-        .plan-card.popular::before {
-            background: linear-gradient(90deg, var(--accent), var(--primary));
-            opacity: 1;
-        }
-        .badge {
-            font-family: 'Oswald', sans-serif;
-            background: var(--accent);
-            color: #000;
-            padding: 5px 20px;
-            border-radius: 50px;
-            font-weight: 700;
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.7rem;
-            letter-spacing: 1px;
-            white-space: nowrap;
-            text-transform: uppercase;
-        }
-        .plan-card h3 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2rem;
-            margin-top: 10px;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
-        .plan-sub {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-        .price {
-            font-family: 'Oswald', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin: 10px 0 5px;
-        }
-        .price small {
-            font-size: 1rem;
-            color: var(--text-muted);
-            -webkit-text-fill-color: var(--text-muted);
-        }
-        .price-tag {
-            display: inline-block;
-            background: rgba(255,0,64,0.15);
-            padding: 4px 15px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            color: var(--primary-light);
-            border: 1px solid rgba(255,0,64,0.2);
-            margin-bottom: 15px;
-        }
-        .features {
-            list-style: none;
-            text-align: left;
-            margin: 20px 0 25px;
-        }
-        .features li {
-            padding: 10px 0;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.95rem;
-        }
-        .features li i {
-            color: var(--secondary);
-            width: 20px;
-            font-size: 1rem;
-        }
-        .btn-select {
-            font-family: 'Oswald', sans-serif;
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: var(--transition);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            width: 100%;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-            font-size: 1rem;
-        }
-        .btn-select:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 30px rgba(255,0,64,0.5);
-        }
-        .btn-select i {
-            margin-right: 8px;
-        }
-        .plan-card.popular .btn-select {
-            background: linear-gradient(135deg, var(--accent), #FF8C00);
-            color: #000;
-        }
-        .plan-card.popular .btn-select:hover {
-            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.5);
-        }
+    .btn-whatsapp i {
+      color: #052e16;
+    }
 
-        /* ===== DEPOIMENTOS ===== */
-        .testimonials {
-            margin: 60px 0;
-        }
-        .testimonials h2 {
-            text-align: center;
-            font-family: 'Oswald', sans-serif;
-            font-size: 2rem;
-            margin-bottom: 40px;
-            color: var(--secondary);
-        }
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        .testimonial-card {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            transition: var(--transition);
-        }
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: var(--glow);
-        }
-        .testimonial-card .stars {
-            color: var(--accent);
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 15px;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-        .testimonial-author {
-            font-weight: 700;
-            color: var(--primary);
-        }
+    .btn-group {
+      background: #075e54;
+      border-color: #128C7E;
+    }
 
-        /* ===== DOWNLOADER ===== */
-        .downloader-section {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a0008 100%);
-            padding: 50px;
-            border-radius: 20px;
-            margin: 50px 0;
-            border: 2px solid var(--border);
-            transition: var(--transition);
-        }
-        .downloader-section:hover {
-            border-color: var(--primary);
-            box-shadow: var(--glow);
-        }
-        .downloader-section h2 {
-            font-family: 'Oswald', sans-serif;
-            text-align: center;
-            color: var(--secondary);
-            margin-bottom: 10px;
-            font-size: 2rem;
-        }
-        .downloader-sub {
-            text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-        }
-        .steps {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        .step {
-            text-align: center;
-            flex: 1;
-            min-width: 140px;
-            max-width: 200px;
-        }
-        .step-number {
-            width: 55px;
-            height: 55px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.5rem;
-            margin: 0 auto 12px;
-            color: #fff;
-            box-shadow: 0 0 30px rgba(255,0,64,0.3);
-        }
-        .step p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-        .step strong {
-            color: #fff;
-        }
-        .download-boxes {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            text-align: center;
-        }
-        .download-item {
-            background: rgba(255,255,255,0.03);
-            padding: 25px 30px;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            transition: var(--transition);
-            min-width: 220px;
-        }
-        .download-item:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
-        }
-        .download-item .label {
-            color: var(--secondary);
-            font-weight: 600;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-        }
-        .code-box {
-            background: #000;
-            color: #00ff88;
-            padding: 12px 25px;
-            border-radius: 10px;
-            font-family: 'Courier New', monospace;
-            font-size: 1.8rem;
-            font-weight: 700;
-            display: inline-block;
-            margin: 10px 0;
-            border: 2px solid var(--primary);
-            letter-spacing: 3px;
-            box-shadow: 0 0 20px rgba(255,0,64,0.2);
-        }
-        .btn-download-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: transparent;
-            color: var(--text);
-            border: 2px solid var(--primary);
-            text-decoration: none;
-            padding: 10px 25px;
-            border-radius: 50px;
-            transition: var(--transition);
-            font-weight: 600;
-        }
-        .btn-download-link:hover {
-            background: var(--primary);
-            color: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(255,0,64,0.4);
-        }
-        .download-secure {
-            text-align: center;
-            margin-top: 30px;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-        .download-secure i {
-            color: var(--success);
-        }
+    .btn-download {
+      background: #2563eb;
+      border-color: #3b82f6;
+      color: white;
+    }
 
-        /* ===== FAQ ===== */
-        .faq {
-            margin: 60px 0;
-        }
-        .faq h2 {
-            text-align: center;
-            font-family: 'Oswald', sans-serif;
-            font-size: 2rem;
-            margin-bottom: 40px;
-            color: var(--secondary);
-        }
-        .faq-grid {
-            display: grid;
-            gap: 15px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .faq-item {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px 25px;
-            cursor: pointer;
-            transition: var(--transition);
-            border: 1px solid var(--border);
-        }
-        .faq-item:hover {
-            border-color: var(--primary);
-        }
-        .faq-item.active {
-            border-color: var(--primary);
-            box-shadow: var(--glow);
-        }
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            font-size: 1.05rem;
-        }
-        .faq-question i {
-            transition: var(--transition);
-            color: var(--primary);
-        }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-            color: var(--text-muted);
-            padding-top: 0;
-        }
-        .faq-item.active .faq-answer {
-            max-height: 200px;
-            padding-top: 15px;
-        }
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
-        }
+    .btn-download i {
+      color: #bfdbfe;
+    }
 
-        /* ===== FOOTER ===== */
-        .footer {
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid var(--border);
-            margin-top: 50px;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-        .footer .brand {
-            color: var(--primary);
-            font-weight: 700;
-        }
+    /* ===== CÓDIGO ===== */
+    .code-box {
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      border-radius: 40px;
+      padding: 12px 20px;
+      margin: 16px 0 8px;
+      display: inline-block;
+      border: 1px solid #2563eb55;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #93c5fd;
+      letter-spacing: 2px;
+      box-shadow: 0 0 12px #2563eb22;
+    }
 
-        /* ===== BOTÕES FLUTUANTES ===== */
-        .btn-whatsapp {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: var(--success);
-            color: white;
-            width: 62px;
-            height: 62px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
-            z-index: 1000;
-            transition: var(--transition);
-            text-decoration: none;
-        }
-        .btn-whatsapp:hover {
-            transform: scale(1.1) rotate(-5deg);
-            box-shadow: 0 8px 35px rgba(37, 211, 102, 0.6);
-        }
-        .btn-whatsapp i {
-            font-size: 34px;
-        }
+    .code-box i {
+      margin-right: 12px;
+      color: #60a5fa;
+    }
 
-        .btn-top {
-            position: fixed;
-            bottom: 105px;
-            right: 28px;
-            background: var(--primary);
-            color: white;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            z-index: 1000;
-            border: none;
-            box-shadow: 0 4px 15px rgba(255,0,64,0.4);
-        }
-        .btn-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        .btn-top:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px) scale(1.05);
-        }
+    .small-note {
+      font-size: 0.82rem;
+      color: #8896b0;
+      margin-top: 12px;
+      line-height: 1.5;
+      border-top: 1px dashed #334155;
+      padding-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-        /* ===== RESPONSIVO ===== */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .hero { padding: 40px 15px 30px; }
-            .pricing-grid { gap: 20px; }
-            .plan-card.popular { transform: scale(1); }
-            .downloader-section { padding: 30px 15px; }
-            .carousel-btn { width: 35px; height: 35px; font-size: 0.9rem; }
-            .price { font-size: 2.5rem; }
-            .download-item { min-width: 160px; padding: 15px 20px; }
-            .code-box { font-size: 1.4rem; padding: 10px 18px; }
-        }
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 1.8rem; }
-            .plan-card { padding: 20px 15px; }
-            .features li { font-size: 0.85rem; }
-            .btn-select { font-size: 0.9rem; padding: 12px 20px; }
-            .comp-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-            .comp-item { padding: 10px 12px; flex-direction: column; text-align: center; gap: 5px; }
-        }
-    </style>
+    .small-note i {
+      color: #facc15;
+      font-size: 1rem;
+    }
+
+    /* ===== RODAPÉ ===== */
+    footer {
+      text-align: center;
+      color: #475569;
+      font-size: 0.8rem;
+      padding: 12px 0 0;
+      letter-spacing: 0.4px;
+      border-top: 1px solid #1e293b;
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    footer i {
+      color: #2563eb;
+    }
+
+    /* ===== RESPONSIVO ===== */
+    @media (max-width: 460px) {
+      .card {
+        padding: 20px 16px;
+        border-radius: 28px;
+      }
+      .btn {
+        font-size: 0.95rem;
+        padding: 14px 16px;
+      }
+      h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
 </head>
 <body>
+<div class="container">
 
-    <!-- ===== HERO ===== -->
-    <header class="hero">
-        <div class="hero-content container">
-            <div class="hero-badge"><i class="fas fa-bolt"></i> ATIVAÇÃO OFICIAL</div>
-            <h1>
-                <span class="highlight">UNI</span><span class="highlight2">TV</span>
-            </h1>
-            <p>Ativação vitalícia com suporte 24/7 • Instalação facilitada via Downloader</p>
-        </div>
-    </header>
+  <!-- CARD PRINCIPAL / HERO -->
+  <div class="card hero">
+    <div class="logo">
+      <i class="fas fa-cloud-download-alt"></i>
+    </div>
+    <h1>Central de Downloads</h1>
+    <p class="subhead">
+      <i class="fas fa-arrow-right" style="color: #38bdf8; margin-right: 8px;"></i>
+      Acesse o material pelos botões abaixo
+    </p>
 
-    <div class="container">
+    <!-- WhatsApp Pessoal -->
+    <a class="btn btn-whatsapp" href="https://wa.me/5561992331249" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+    </a>
 
-        <!-- ===== CARROSSEL ===== -->
-        <div class="carousel-section">
-            <div class="carousel-container">
-                <div class="carousel-slides">
-                    <div class="carousel-slide">
-                        <img src="https://i.ibb.co/LdB29HrL/img3.jpg" alt="UniTV Interface 1">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="https://i.ibb.co/84mPcCwK/img2.jpg" alt="UniTV Interface 2">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="https://i.ibb.co/W4sDZFxK/img5.jpg" alt="UniTV Interface 3">
-                    </div>
-                </div>
-                <button class="carousel-btn prev" aria-label="Anterior">❮</button>
-                <button class="carousel-btn next" aria-label="Próximo">❯</button>
-                <div class="carousel-dots">
-                    <div class="dot active"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                </div>
-            </div>
-        </div>
+    <!-- Grupo WhatsApp -->
+    <a class="btn btn-group" href="https://chat.whatsapp.com/KCf5DwFhEKE4KqsaIMdUld?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener noreferrer">
+      <i class="fas fa-users"></i> Entrar no Grupo
+    </a>
+  </div>
 
-        <!-- ===== COMPATIBILIDADE ===== -->
-        <div class="compatibility">
-            <h2><i class="fas fa-tv" style="color: var(--secondary);"></i> DISPOSITIVOS SUPORTADOS</h2>
-            <div class="comp-grid">
-                <div class="comp-item">
-                    <div class="comp-icon"><i class="fas fa-mobile-alt"></i></div>
-                    <div class="comp-text"><b>Celulares</b><span>Android Universal</span></div>
-                </div>
-                <div class="comp-item">
-                    <div class="comp-icon"><i class="fas fa-tablet-alt"></i></div>
-                    <div class="comp-text"><b>Tablets</b><span>Todos os modelos</span></div>
-                </div>
-                <div class="comp-item">
-                    <div class="comp-icon"><i class="fas fa-tv"></i></div>
-                    <div class="comp-text"><b>TV Box</b><span>Todos os modelos</span></div>
-                </div>
-                <div class="comp-item">
-                    <div class="comp-icon"><i class="fas fa-desktop"></i></div>
-                    <div class="comp-text"><b>Smart TV</b><span>Android TV / Google TV</span></div>
-                </div>
-            </div>
-        </div>
+  <!-- CARD ATIVADOR ANTI-BLOQUEIO -->
+  <div class="card">
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+      <i class="fas fa-shield-alt" style="font-size: 2rem; color: #38bdf8;"></i>
+      <h2 style="font-size: 1.4rem; font-weight: 600; letter-spacing: -0.2px;">Ativador Anti-Bloqueio</h2>
+    </div>
 
-        <!-- ===== PLANOS ===== -->
-        <div class="pricing-grid">
-            <!-- BÁSICO -->
-            <div class="plan-card">
-                <h3>BÁSICO</h3>
-                <div class="plan-sub">1 dispositivo</div>
-                <div class="price">R$ 50<small>,00</small></div>
-                <div class="price-tag"><i class="fas fa-infinity"></i> Vitalício</div>
-                <ul class="features">
-                    <li><i class="fas fa-check-circle"></i> 1 Dispositivo</li>
-                    <li><i class="fas fa-check-circle"></i> Acesso Vitalício</li>
-                    <li><i class="fas fa-check-circle"></i> Suporte Básico</li>
-                    <li><i class="fas fa-check-circle"></i> Instalação facilitada</li>
-                </ul>
-                <a href="https://wa.me/5561981655652?text=Olá! Gostaria do Plano BÁSICO (R$50,00)" class="btn-select"><i class="fab fa-whatsapp"></i> Quero este</a>
-            </div>
+    <p style="color: #cbd5e1; margin-bottom: 18px; line-height: 1.6;">
+      <i class="fas fa-microchip" style="color: #60a5fa; margin-right: 8px;"></i>
+      Diagnóstico e configuração de conexão para Android.
+    </p>
 
-            <!-- PREMIUM -->
-            <div class="plan-card popular">
-                <div class="badge">🔥 MAIS VENDIDO</div>
-                <h3>PREMIUM</h3>
-                <div class="plan-sub">2 dispositivos</div>
-                <div class="price">R$ 85<small>,00</small></div>
-                <div class="price-tag"><i class="fas fa-infinity"></i> Vitalício</div>
-                <ul class="features">
-                    <li><i class="fas fa-check-circle"></i> 2 Dispositivos</li>
-                    <li><i class="fas fa-check-circle"></i> Acesso Vitalício</li>
-                    <li><i class="fas fa-check-circle"></i> Suporte Prioritário</li>
-                    <li><i class="fas fa-check-circle"></i> Atualizações Grátis</li>
-                </ul>
-                <a href="https://wa.me/5561981655652?text=Olá! Gostaria do Plano PREMIUM (R$85,00)" class="btn-select"><i class="fab fa-whatsapp"></i> Quero este</a>
-            </div>
+    <!-- Botão Download -->
+    <a class="btn btn-download" href="https://aftv.news/5812236" target="_blank" rel="noopener noreferrer">
+      <i class="fas fa-download"></i> Acessar Download
+    </a>
 
-            <!-- VIP -->
-            <div class="plan-card">
-                <div class="badge">💎 MELHOR CUSTO</div>
-                <h3>VIP</h3>
-                <div class="plan-sub">4 dispositivos</div>
-                <div class="price">R$ 160<small>,00</small></div>
-                <div class="price-tag"><i class="fas fa-infinity"></i> Vitalício</div>
-                <ul class="features">
-                    <li><i class="fas fa-check-circle"></i> 4 Dispositivos</li>
-                    <li><i class="fas fa-check-circle"></i> Acesso Vitalício</li>
-                    <li><i class="fas fa-check-circle"></i> Suporte VIP 24/7</li>
-                    <li><i class="fas fa-check-circle"></i> Conteúdo Exclusivo</li>
-                </ul>
-                <a href="https://wa.me/5561981655652?text=Olá! Gostaria do Plano VIP (R$160,00)" class="btn-select"><i class="fab fa-whatsapp"></i> Quero este</a>
-            </div>
-        </div>
+    <!-- Código com ícone -->
+    <div style="display: flex; justify-content: center;">
+      <div class="code-box">
+        <i class="fas fa-key"></i> Código: 5812236
+      </div>
+    </div>
 
-        <!-- ===== DEPOIMENTOS ===== -->
-        <div class="testimonials">
-            <h2><i class="fas fa-star" style="color: var(--accent);"></i> O que nossos clientes dizem</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <div class="testimonial-text">"Serviço excelente! Ativação rápida e suporte muito atencioso. Recomendo demais!"</div>
-                    <div class="testimonial-author">- Carlos S.</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <div class="testimonial-text">"Funciona perfeitamente na minha TV Box. Melhor custo-benefício que já vi."</div>
-                    <div class="testimonial-author">- Mariana F.</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <div class="testimonial-text">"Suporte via WhatsApp muito rápido. Em 5 minutos já estava tudo funcionando!"</div>
-                    <div class="testimonial-author">- Rodrigo L.</div>
-                </div>
-            </div>
-        </div>
+    <!-- Dica extra -->
+    <div class="small-note">
+      <i class="fas fa-exclamation-triangle"></i>
+      <span>Se aparecer erro de conexão, verifique primeiro sua internet e configurações do dispositivo.</span>
+    </div>
+  </div>
 
-        <!-- ===== DOWNLOADER ===== -->
-        <div class="downloader-section">
-            <h2><i class="fas fa-download" style="color: var(--primary);"></i> Instalação via Downloader</h2>
-            <p class="downloader-sub">Siga o passo a passo e ative seu UniTV em poucos minutos</p>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <p>Abra o <strong>Downloader</strong> na sua TV/Box</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <p>Digite o código e <strong>baixe</strong> o APK</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <p>Instale e <strong>ative</strong> com a gente</p>
-                </div>
-            </div>
+  <!-- RODAPÉ -->
+  <footer>
+    <i class="fas fa-database"></i>
+    <span>© 2026 · Central de Downloads</span>
+    <i class="fas fa-circle" style="font-size: 0.3rem; color: #475569;"></i>
+    <span style="display: inline-flex; gap: 4px; align-items: center;">
+      <i class="fas fa-arrow-up" style="color: #22d3ee;"></i> up
+    </span>
+  </footer>
 
-            <div class="download-boxes">
-                <div class="download-item">
-                    <div class="label"><i class="fas fa-key"></i> ATIVADOR</div>
-                    <div class="code-box">9671325</div><br>
-                    <a href="https://tvbr.ovh/downloads/Ativador-REV-UPDATE.apk" class="btn-download-link"><i class="fas fa-download"></i> Baixar APK</a>
-                </div>
-                <div class="download-item">
-                    <div class="label"><i class="fas fa-play-circle"></i> UNITV FREE 5.5.0</div>
-                    <div class="code-box">7693157</div><br>
-                    <a href="https://tvbr.ovh/downloads/UniTV_Free_5.5.0.apk" class="btn-download-link"><i class="fas fa-download"></i> Baixar APK</a>
-                </div>
-            </div>
-            <div class="download-secure">
-                <i class="fas fa-shield-alt"></i> Arquivos 100% seguros e testados
-            </div>
-        </div>
+</div>
+</body>
+</html><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Central de Downloads · UP</title>
+  <!-- Font Awesome para ícones modernos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        <!-- ===== FAQ ===== -->
-        <div class="faq">
-            <h2><i class="fas fa-question-circle" style="color: var(--secondary);"></
+    body {
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 20% 20%, #0f172a, #020617);
+      color: #f1f5f9;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* ===== CARDS ===== */
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 36px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 25px 40px -15px rgba(0, 0, 0, 0.7);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 30px 50px -18px #000000cc;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      text-align: center;
+      padding: 18px 16px 28px;
+      background: rgba(255, 255, 255, 0.02);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .logo {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 16px;
+      background: linear-gradient(145deg, #25D366, #128C7E);
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      color: #0b1a0e;
+      box-shadow: 0 12px 20px -8px #128c7e55;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      background: linear-gradient(to right, #e2e8f0, #b9c7e0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 6px;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #94a3b8;
+      margin-bottom: 22px;
+      font-weight: 400;
+      letter-spacing: 0.2px;
+    }
+
+    /* ===== BOTÕES ===== */
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      font-size: 1.05rem;
+      padding: 15px 18px;
+      border-radius: 60px;
+      margin: 12px 0 8px;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      letter-spacing: 0.3px;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(4px);
+    }
+
+    .btn i {
+      font-size: 1.3rem;
+      width: 28px;
+      text-align: center;
+    }
+
+    .btn:hover {
+      transform: scale(1.01) translateY(-2px);
+      filter: brightness(1.12);
+      box-shadow: 0 16px 28px -8px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: #052e16;
+      border-color: #34eb7a;
+    }
+
+    .btn-whatsapp i {
+      color: #052e16;
+    }
+
+    .btn-group {
+      background: #075e54;
+      border-color: #128C7E;
+    }
+
+    .btn-download {
+      background: #2563eb;
+      border-color: #3b82f6;
+      color: white;
+    }
+
+    .btn-download i {
+      color: #bfdbfe;
+    }
+
+    /* ===== CÓDIGO ===== */
+    .code-box {
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      border-radius: 40px;
+      padding: 12px 20px;
+      margin: 16px 0 8px;
+      display: inline-block;
+      border: 1px solid #2563eb55;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #93c5fd;
+      letter-spacing: 2px;
+      box-shadow: 0 0 12px #2563eb22;
+    }
+
+    .code-box i {
+      margin-right: 12px;
+      color: #60a5fa;
+    }
+
+    .small-note {
+      font-size: 0.82rem;
+      color: #8896b0;
+      margin-top: 12px;
+      line-height: 1.5;
+      border-top: 1px dashed #334155;
+      padding-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .small-note i {
+      color: #facc15;
+      font-size: 1rem;
+    }
+
+    /* ===== RODAPÉ ===== */
+    footer {
+      text-align: center;
+      color: #475569;
+      font-size: 0.8rem;
+      padding: 12px 0 0;
+      letter-spacing: 0.4px;
+      border-top: 1px solid #1e293b;
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    footer i {
+      color: #2563eb;
+    }
+
+    /* ===== RESPONSIVO ===== */
+    @media (max-width: 460px) {
+      .card {
+        padding: 20px 16px;
+        border-radius: 28px;
+      }
+      .btn {
+        font-size: 0.95rem;
+        padding: 14px 16px;
+      }
+      h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- CARD PRINCIPAL / HERO -->
+  <div class="card hero">
+    <div class="logo">
+      <i class="fas fa-cloud-download-alt"></i>
+    </div>
+    <h1>Central de Downloads</h1>
+    <p class="subhead">
+      <i class="fas fa-arrow-right" style="color: #38bdf8; margin-right: 8px;"></i>
+      Acesse o material pelos botões abaixo
+    </p>
+
+    <!-- WhatsApp Pessoal -->
+    <a class="btn btn-whatsapp" href="https://wa.me/5561992331249" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+    </a>
+
+    <!-- Grupo WhatsApp -->
+    <a class="btn btn-group" href="https://chat.whatsapp.com/KCf5DwFhEKE4KqsaIMdUld?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener noreferrer">
+      <i class="fas fa-users"></i> Entrar no Grupo
+    </a>
+  </div>
+
+  <!-- CARD ATIVADOR ANTI-BLOQUEIO -->
+  <div class="card">
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+      <i class="fas fa-shield-alt" style="font-size: 2rem; color: #38bdf8;"></i>
+      <h2 style="font-size: 1.4rem; font-weight: 600; letter-spacing: -0.2px;">Ativador Anti-Bloqueio</h2>
+    </div>
+
+    <p style="color: #cbd5e1; margin-bottom: 18px; line-height: 1.6;">
+      <i class="fas fa-microchip" style="color: #60a5fa; margin-right: 8px;"></i>
+      Diagnóstico e configuração de conexão para Android.
+    </p>
+
+    <!-- Botão Download -->
+    <a class="btn btn-download" href="https://aftv.news/5812236" target="_blank" rel="noopener noreferrer">
+      <i class="fas fa-download"></i> Acessar Download
+    </a>
+
+    <!-- Código com ícone -->
+    <div style="display: flex; justify-content: center;">
+      <div class="code-box">
+        <i class="fas fa-key"></i> Código: 5812236
+      </div>
+    </div>
+
+    <!-- Dica extra -->
+    <div class="small-note">
+      <i class="fas fa-exclamation-triangle"></i>
+      <span>Se aparecer erro de conexão, verifique primeiro sua internet e configurações do dispositivo.</span>
+    </div>
+  </div>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <i class="fas fa-database"></i>
+    <span>© 2026 · Central de Downloads</span>
+    <i class="fas fa-circle" style="font-size: 0.3rem; color: #475569;"></i>
+    <span style="display: inline-flex; gap: 4px; align-items: center;">
+      <i class="fas fa-arrow-up" style="color: #22d3ee;"></i> up
+    </span>
+  </footer>
+
+</div>
+</body>
+</html>
